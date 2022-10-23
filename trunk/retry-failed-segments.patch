@@ -1,0 +1,12 @@
+diff --git a/libavformat/hls.c b/libavformat/hls.c
+index 3dc7bd3930..6315f7b88e 100644
+--- a/libavformat/hls.c
++++ b/libavformat/hls.c
+@@ -1562,7 +1562,6 @@ reload:
+             av_log(v->parent, AV_LOG_WARNING, "Failed to open segment %"PRId64" of playlist %d\n",
+                    v->cur_seq_no,
+                    v->index);
+-            v->cur_seq_no += 1;
+             goto reload;
+         }
+         just_opened = 1;

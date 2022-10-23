@@ -108,14 +108,17 @@ _tag=1326fe9d4c85cca1ee774b072ef4fa337694f2e7
 source=(
   git+https://git.ffmpeg.org/ffmpeg.git?signed#tag=${_tag}
   add-av_stream_get_first_dts-for-chromium.patch
+  retry-failed-segments.patch
 )
 b2sums=('SKIP'
-        '555274228e09a233d92beb365d413ff5c718a782008075552cafb2130a3783cf976b51dfe4513c15777fb6e8397a34122d475080f2c4483e8feea5c0d878e6de')
+        '555274228e09a233d92beb365d413ff5c718a782008075552cafb2130a3783cf976b51dfe4513c15777fb6e8397a34122d475080f2c4483e8feea5c0d878e6de'
+        '93b5db3f18dea0c822336638dcab8be2288c38aaf6483c3f120546c7447cad5ab1f266b0c8f9537ee383a6f2667c2f9542ce297f8bdbb554a67cc9c4756167b4')
 validpgpkeys=(DD1EC9E8DE085C629B3E1846B18E8928B3948D64) # Michael Niedermayer <michael@niedermayer.cc>
 
 prepare() {
   cd ffmpeg
   patch -Np1 -i ../add-av_stream_get_first_dts-for-chromium.patch # https://crbug.com/1251779
+  patch -Np1 -i ../retry-failed-segments.patch
 }
 
 pkgver() {
